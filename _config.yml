@@ -4,12 +4,32 @@ theme: just-the-docs
 
 url: https://www.greenstand.github.io
 
+# for github-metadata
+repository: { project repository here }
+
 # Set a path/url to a logo that will be displayed instead of the title
 logo: "assets/images/logo_512x512.png"
 
 favicon_ico: "/assets/images/favicon.ico"
 
 color_scheme: greenstand
+
+callouts_level: quiet # or loud
+callouts:
+  highlight:
+    color: yellow
+  important:
+    title: Important
+    color: blue
+  new:
+    title: New
+    color: green
+  note:
+    title: Note
+    color: purple
+  warning:
+    title: Warning
+    color: red
 
 permalink: pretty
 
@@ -48,6 +68,28 @@ enable_copy_code_button: true
 # Enable or disable heading anchors
 heading_anchors: true
 
+# By default, consuming the theme as a gem leaves mermaid disabled; it is opt-in
+mermaid:
+  # Version of mermaid library
+  # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
+  version: "9.1.6"
+  # Put any additional configuration, such as setting the theme, in _includes/mermaid_config.js
+  # See also docs/ui-components/code
+  # To load mermaid from a local library, also use the `path` key to specify the location of the library; e.g.
+  # for (v10+):
+  # path: "/assets/js/mermaid.esm.min.mjs"
+  # for (<v10):
+  # path: "/assets/js/mermaid.min.js"
+  # Note: copy both `mermaid.esm.min.mjs` (v10+) or `mermaid.min.js` (<v10) and the associated `.map` file from the specified version of `mermaid/dist` to `/assets/js/`.
+
+# Makes Aux links open in a new tab. Default is false
+aux_links_new_tab: false
+
+# Sort order for navigation links
+# nav_sort: case_insensitive # default, equivalent to nil
+nav_sort: case_sensitive # Capital letters sorted before lowercase
+
+
 # Footer content
 # appears at the bottom of every page's main content
 
@@ -68,10 +110,34 @@ gh_edit_branch: "main" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
 
+
+# Google Analytics Tracking (optional)
+# Supports a CSV of tracking ID strings (eg. "UA-1234567-89,G-1AB234CDE5")
+# Note: the main Just the Docs site does *not* use Google Analytics.
+# ga_tracking: UA-2709176-10,G-5FG1HLH3XQ
+# ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
+
+
 plugins:
   - jekyll-seo-tag
   - jekyll-github-metadata
   - jekyll-last-modified-at
+
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
+  # ignore:
+  #   envs: all
+
 
 exclude:
   # from https://github.com/jekyll/jekyll/blob/master/lib/site_template/_config.yml:
