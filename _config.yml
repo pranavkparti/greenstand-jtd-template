@@ -8,7 +8,7 @@ url: https://www.greenstand.github.io
 repository: { project repository here }
 
 # Set a path/url to a logo that will be displayed instead of the title
-logo: "assets/images/logo_512x512.png"
+logo: "assets/images/logo_192x192.png"
 
 favicon_ico: "/assets/images/favicon.ico"
 
